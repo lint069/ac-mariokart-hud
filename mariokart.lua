@@ -1,5 +1,6 @@
 ---@diagnostic disable: lowercase-global, redefined-local
 
+
 require 'flags'
 
 function utf8len(str)
@@ -20,13 +21,12 @@ end
 
 local settings = ac.storage{
     enabled = false,
-    debug = false,
 }
 
-_sim = ac.getSim()
-_car = ac.getCar(_sim.focusedCar)
+_car = ac.getCar(0)
+_assetsPath = './assets'
 
-function script.windowMain()
+function script.windowMain(dt)
     ui.setCursor(vec2(10, 30))
     if ui.checkbox('enabled', settings.enabled) then
         settings.enabled = not settings.enabled
@@ -38,15 +38,28 @@ function script.Draw3D()
 
     local carPos = _car.position
 
+    --#region Arrow
+
+    local mk8Path = _assetsPath .. '/mk-8/'
     local arrowPos = carPos + vec3(0, 1.75, 0)
     local p1, p2, p3, p4 = makeBillboardQuad(arrowPos, 0.4, 0.4)
-    render.quad(p1, p2, p3, p4, rgbm(1, 1, 1, 1), "assets/mk-8/arrow.png")
+    render.quad(p1, p2, p3, p4, rgbm(1, 1, 1, 1), mk8Path .. "arrow.png")
+
+    --#endregion
+
+    --#region Flag
 
     local camSide = ac.getCameraSide()
-    local flagOffset = camSide * 0.8
-    local flagPos = arrowPos + flagOffset + vec3(0, 0.35, 0)
+    local flagOffset = camSide * 0.7
+    local flagPos = arrowPos + flagOffset + vec3(0, 0.36, 0)
 
-    local p1, p2, p3, p4 = makeBillboardQuad(flagPos, 0.3, 0.17)
-    local playerName, playerNationality = getFlagInfo()
-    render.quad(p1, p2, p3, p4, nil, "assets/flags/de.png")
+    local _, playerNationality = getFlagInfo()
+    local flagHeight = 0.165
+    local flagWidth = flagHeight * _flags[playerNationality].ratio
+
+    local flagsPath = _assetsPath .. '/flags/'
+    local p1, p2, p3, p4 = makeBillboardQuad(flagPos, flagWidth, flagHeight)
+    render.quad(p1, p2, p3, p4, nil, flagsPath .. _flags[playerNationality].ISO .. ".png")
+
+    --#endregion
 end
