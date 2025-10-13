@@ -1,19 +1,257 @@
 ---@diagnostic disable: lowercase-global
 
+--[[
+    ratio info from:
+    https://de.wikipedia.org/wiki/Liste_der_Seitenverh%C3%A4ltnisse_von_Flaggen
+    https://en.wikipedia.org/wiki/List_of_national_flags_of_sovereign_states
+
+    ratio = width/height
+
+    sorted like the lib
+]]
 
 _flags = {
-    Italy   = { ISO = 'it', ratio = 3/2 },
-    Germany = { ISO = 'de', ratio = 5/3 },
-}
+    Aruba           = { ISO = 'aw', ratio = 3/2 },
+    Afghanistan     = { ISO = 'af', ratio = 3/2 },
+    Angola          = { ISO = 'ag', ratio = 3/2 },
+    Anguilla        = { ISO = 'ai', ratio = 2/1 },
+    Albania         = { ISO = 'al', ratio = 7/5 },
+    Andorra         = { ISO = 'ad', ratio = 10/7 },
+    Armenia         = { ISO = 'am', ratio = 2/1 },
+    Argentina       = { ISO = 'ar', ratio = 5/3 },
+    Antarctica      = { ISO = 'ac', ratio = 3/2 },  -- Broken, added myself
+    Antigua         = { ISO = 'ag', ratio = 3/2 },
 
---[[
-    go over all drivers that currently are in the server.
-    get their nationality and name.
-]]
+    Australia       = { ISO = 'au', ratio = 2/1 },
+    Austria         = { ISO = 'at', ratio = 3/2 },
+    Azerbaijan      = { ISO = 'az', ratio = 2/1 },
+    Burundi         = { ISO = 'bi', ratio = 5/3 },
+    Belgium         = { ISO = 'be', ratio = 14/13 },
+    Benin           = { ISO = 'bj', ratio = 3/2 },
+    Burkina         = { ISO = 'bf', ratio = 3/2 },
+    Bangladesh      = { ISO = 'bd', ratio = 5/3 },
+    Bulgaria        = { ISO = 'bg', ratio = 5/3 },
+    Bahrain         = { ISO = 'bh', ratio = 5/3 },
+
+    Bahamas         = { ISO = 'bs', ratio = 2/1 },
+    Bosnia          = { ISO = 'ba', ratio = 2/1 },
+    Belarus         = { ISO = 'by', ratio = 2/1 },
+    Belize          = { ISO = 'bz', ratio = 5/3 },
+    Bermuda         = { ISO = 'bm', ratio = 2/1 },
+    Bolivia         = { ISO = 'bo', ratio = 22/15 },
+    Brazil          = { ISO = 'br', ratio = 10/7 },
+    Barbados        = { ISO = 'bb', ratio = 3/2 },
+    Brunei          = { ISO = 'bn', ratio = 2/1 },
+    Bhutan          = { ISO = 'bt', ratio = 3/2 },
+
+    Botswana        = { ISO = 'bw', ratio = 3/2 },
+    Central         = { ISO = 'cf', ratio = 3/2 },
+    Canada          = { ISO = 'ca', ratio = 2/1 },
+    Cocos           = { ISO = 'cc', ratio = 2/1 },
+    Switzerland     = { ISO = 'ch', ratio = 1/1 },
+    Chile           = { ISO = 'cl', ratio = 3/2 },
+    China           = { ISO = 'cn', ratio = 3/2 },
+    Cote            = { ISO = 'ci', ratio = 3/2 },
+    Cameroon        = { ISO = 'cm', ratio = 3/2 },
+    Congo           = { ISO = 'cg', ratio = 3/2 },
+
+    Cook            = { ISO = 'ck', ratio = 2/1 },
+    Colombia        = { ISO = 'co', ratio = 3/2 },
+    Comoros         = { ISO = 'km', ratio = 5/3 },
+    Cape            = { ISO = 'cv', ratio = 17/10 },
+    Costa           = { ISO = 'cr', ratio = 5/3 },
+    Cuba            = { ISO = 'cu', ratio = 2/1 },
+    Cayman          = { ISO = 'ky', ratio = 2/1 },
+    Cyprus          = { ISO = 'cy', ratio = 3/2 },
+    Czech           = { ISO = 'cz', ratio = 3/2 },
+    Germany         = { ISO = 'de', ratio = 5/3 },
+
+    Djibouti        = { ISO = 'dj', ratio = 3/2 },
+    Dominica        = { ISO = 'dm', ratio = 2/1 },
+    Denmark         = { ISO = 'dk', ratio = 37/28 },
+    Dominican       = { ISO = 'do', ratio = 8/5 },
+    Algeria         = { ISO = 'dz', ratio = 3/2 },
+    Ecuador         = { ISO = 'ec', ratio = 3/2 },
+    Egypt           = { ISO = 'eg', ratio = 3/2 },
+    England         = { ISO = 'gb-eng', ratio = 5/3 },
+    Eritrea         = { ISO = 'er', ratio = 2/1 },
+    Western         = { ISO = 'eh', ratio = 2/1 },
+
+    Spain           = { ISO = 'es', ratio = 3/2 },
+    Estonia         = { ISO = 'ee', ratio = 11/7 },
+    Ethiopia        = { ISO = 'et', ratio = 2/1 },
+    Finland         = { ISO = 'fi', ratio = 18/11 },
+    Fiji            = { ISO = 'fj', ratio = 2/1 },
+    France          = { ISO = 'fr', ratio = 3/2 },
+    Faroe           = { ISO = 'fo', ratio = 8/11 },
+    Micronesia      = { ISO = 'fm', ratio = 19/10 },
+    Gabon           = { ISO = 'ga', ratio = 4/3 },
+    Great           = { ISO = 'gb', ratio = 2/1 },
+
+    Georgia         = { ISO = 'ge', ratio = 3/2 },
+    Guernsey        = { ISO = 'gg', ratio = 3/2 },
+    Ghana           = { ISO = 'gh', ratio = 3/2 },
+    Gibraltar       = { ISO = 'gi', ratio = 2/1 },
+    Guinea          = { ISO = 'gn', ratio = 3/2 },
+    Gambia          = { ISO = 'gm', ratio = 3/2 },
+    Equatorial      = { ISO = 'gq', ratio = 3/2 },
+    Greece          = { ISO = 'gr', ratio = 3/2 },
+    Grenada         = { ISO = 'gd', ratio = 5/3 },
+    Greenland       = { ISO = 'gl', ratio = 3/2 },
+
+    Guatemala       = { ISO = 'gt', ratio = 8/5 },
+    Guam            = { ISO = 'gu', ratio = 41/22 },
+    Guyana          = { ISO = 'gy', ratio = 5/3 },
+    Hong            = { ISO = 'hk', ratio = 3/2 },
+    Honduras        = { ISO = 'hn', ratio = 2/1 },
+    Croatia         = { ISO = 'hr', ratio = 2/1 },
+    Haiti           = { ISO = 'ht', ratio = 5/3 },
+    Hungary         = { ISO = 'hu', ratio = 2/1 },
+    Indonesia       = { ISO = 'id', ratio = 3/2 },
+    Isle            = { ISO = 'im', ratio = 2/1 },
+
+    India           = { ISO = 'in', ratio = 3/2 },
+    Ireland         = { ISO = 'ie', ratio = 2/1 },
+    Iran            = { ISO = 'ir', ratio = 7/4 },
+    Iraq            = { ISO = 'iq', ratio = 3/2 },
+    Iceland         = { ISO = 'is', ratio = 25/18 },
+    Israel          = { ISO = 'il', ratio = 11/8 },
+    Italy           = { ISO = 'it', ratio = 3/2 },
+    Jamaica         = { ISO = 'jm', ratio = 2/1 },
+    Jersey          = { ISO = 'je', ratio = 5/3 },
+    Jordan          = { ISO = 'jo', ratio = 2/1 },
+
+    Japan           = { ISO = 'jp', ratio = 3/2 },
+    Kazakhstan      = { ISO = 'kz', ratio = 2/1 },
+    Kenya           = { ISO = 'ke', ratio = 3/2 },
+    Kyrgyzstan      = { ISO = 'kg', ratio = 5/3 },
+    Cambodia        = { ISO = 'kh', ratio = 3/2 },
+    Kiribati        = { ISO = 'ki', ratio = 2/1 },
+    Saint           = { ISO = 'lc', ratio = 2/1 },
+    South           = { ISO = 'za', ratio = 3/2 },
+    Kuwait          = { ISO = 'kw', ratio = 2/1 },
+    Laos            = { ISO = 'la', ratio = 3/2 },
+
+    Lebanon         = { ISO = 'lb', ratio = 3/2 },
+    Liberia         = { ISO = 'lr', ratio = 19/10 },
+    Liechtenstein   = { ISO = 'li', ratio = 5/3 },
+    Sri             = { ISO = 'lk', ratio = 2/1 },
+    Lesotho         = { ISO = 'ls', ratio = 3/2 },
+    Lithuania       = { ISO = 'lt', ratio = 5/3 },
+    Luxembourg      = { ISO = 'lu', ratio = 5/3 },
+    Latvia          = { ISO = 'lv', ratio = 2/1 },
+    Macau           = { ISO = 'mo', ratio = 3/2 },
+    Morocco         = { ISO = 'ma', ratio = 3/2 },
+
+    Monaco          = { ISO = 'mc', ratio = 5/4 },
+    Moldova         = { ISO = 'md', ratio = 2/1 },
+    Madagascar      = { ISO = 'mg', ratio = 3/2 },
+    Maldives        = { ISO = 'mv', ratio = 3/2 },
+    Mexico          = { ISO = 'mx', ratio = 7/4 },
+    Marshall        = { ISO = 'mh', ratio = 19/10 },
+    Macedonia       = { ISO = 'mk', ratio = 2/1 },
+    Mali            = { ISO = 'ml', ratio = 3/2 },
+    Malta           = { ISO = 'mt', ratio = 3/2 },
+    Myanmar         = { ISO = 'mm', ratio = 3/2 },
+
+    Montenegro      = { ISO = 'me', ratio = 2/1 },
+    Mongolia        = { ISO = 'mn', ratio = 2/1 },
+    Mozambique      = { ISO = 'mz', ratio = 3/2 },
+    Mauritania      = { ISO = 'mr', ratio = 3/2 },
+    Montserrat      = { ISO = 'ms', ratio = 2/1 },
+    Martinique      = { ISO = 'mi', ratio = 3/2 }, -- added myself
+    Mauritius       = { ISO = 'mu', ratio = 3/2 },
+    Malawi          = { ISO = 'mw', ratio = 3/2 },
+    Malaysia        = { ISO = 'my', ratio = 2/1 },
+    Namibia         = { ISO = 'na', ratio = 3/2 },
+
+    New             = { ISO = 'nz', ratio = 2/1 },
+    Niger           = { ISO = 'ne', ratio = 7/6 },
+    Nigeria         = { ISO = 'ng', ratio = 2/1 },
+    Nicaragua       = { ISO = 'ni', ratio = 5/3 },
+    Northern        = { ISO = 'mp', ratio = 2/1 },
+    Netherlands     = { ISO = 'nl', ratio = 3/2 },
+    Norway          = { ISO = 'no', ratio = 11/8 },
+    Nepal           = { ISO = 'np', ratio = 61/50 },
+    Nauru           = { ISO = 'nr', ratio = 2/1 },
+    Oman            = { ISO = 'om', ratio = 2/1 },
+
+    Pakistan        = { ISO = 'pk', ratio = 3/2 },
+    Panama          = { ISO = 'pa', ratio = 3/2 },
+    Peru            = { ISO = 'pe', ratio = 3/2 },
+    Philippines     = { ISO = 'ph', ratio = 2/1 },
+    Palau           = { ISO = 'pw', ratio = 8/5 },
+    Papua           = { ISO = 'pg', ratio = 4/3 },
+    Poland          = { ISO = 'pl', ratio = 8/5 },
+    Puerto          = { ISO = 'pr', ratio = 3/2 },
+    Portugal        = { ISO = 'pt', ratio = 3/2 },
+    Paraguay        = { ISO = 'py', ratio = 20/11 },
+
+    French          = { ISO = 'fr', ratio = 3/2 },
+    Qatar           = { ISO = 'qa', ratio = 28/11 },
+    Romania         = { ISO = 'ro', ratio = 3/2 },
+    Russia          = { ISO = 'ru', ratio = 3/2 },
+    Rwanda          = { ISO = 'rw', ratio = 3/2 },
+    Saudi           = { ISO = 'sa', ratio = 3/2 },
+    Scotland        = { ISO = 'gb-sct', ratio = 5/3 },
+    Sudan           = { ISO = 'sd', ratio = 2/1 },
+    Senegal         = { ISO = 'sn', ratio = 3/2 },
+    Singapore       = { ISO = 'sg', ratio = 3/2 },
+
+    Solomon         = { ISO = 'sb', ratio = 2/1 },
+    Sierra          = { ISO = 'sl', ratio = 3/2 },
+    El              = { ISO = 'sv', ratio = 5/3 },
+    San             = { ISO = 'sm', ratio = 4/3 },
+    Somalia         = { ISO = 'so', ratio = 3/2 },
+    Serbia          = { ISO = 'rs', ratio = 3/2 },
+    Sao             = { ISO = 'st', ratio = 2/1 },
+    Suriname        = { ISO = 'sr', ratio = 3/2 },
+    Slovakia        = { ISO = 'sk', ratio = 3/2 },
+    Slovenia        = { ISO = 'si', ratio = 2/1 },
+
+    Sweden          = { ISO = 'se', ratio = 8/5 },
+    Swaziland       = { ISO = 'sz', ratio = 3/2 },
+    Seychelles      = { ISO = 'sc', ratio = 2/1 },
+    Syria           = { ISO = 'sy', ratio = 3/2 },
+    Turks           = { ISO = 'tc', ratio = 2/1 },
+    Chad            = { ISO = 'td', ratio = 3/2 },
+    Togo            = { ISO = 'tg', ratio = 81/50 },
+    Thailand        = { ISO = 'th', ratio = 3/2 },
+    Tajikistan      = { ISO = 'tj', ratio = 2/1 },
+    Turkmenistan    = { ISO = 'tm', ratio = 3/2 },
+
+    Timor           = { ISO = 'tl', ratio = 2/1 },
+    Tonga           = { ISO = 'to', ratio = 2/1 },
+    Trinidad        = { ISO = 'tt', ratio = 5/3 },
+    Tunisia         = { ISO = 'tn', ratio = 3/2 },
+    Turkey          = { ISO = 'tr', ratio = 3/2 },
+    Tuvalu          = { ISO = 'tv', ratio = 2/1 },
+    Taiwan          = { ISO = 'tw', ratio = 3/2 },
+    Tanzania        = { ISO = 'tz', ratio = 3/2 },
+    Uganda          = { ISO = 'ug', ratio = 3/2 },
+    Ukraine         = { ISO = 'ua', ratio = 3/2 },
+
+    Uruguay         = { ISO = 'ug', ratio = 3/2 },
+    USA             = { ISO = 'us', ratio = 19/10 },
+    Uzbekistan      = { ISO = 'uz', ratio = 2/1 },
+    Venezuela       = { ISO = 've', ratio = 3/2 },
+    British         = { ISO = 'gb', ratio = 2/1 },
+    Virgin          = { ISO = 'vi', ratio = 3/2 },
+    Vietnam         = { ISO = 'vn', ratio = 3/2 },
+    Vanuatu         = { ISO = 'vu', ratio = 36/19 },
+    Wales           = { ISO = 'gb-wls', ratio = 5/3 },
+    Samoa           = { ISO = 'ws', ratio = 2/1 },
+
+    Yemen           = { ISO = 'ye', ratio = 3/2 },
+    Zambia          = { ISO = 'zm', ratio = 3/2 },
+    Zimbabwe        = { ISO = 'zw', ratio = 2/1 },
+}
 
 local playerNationality = '' ---@type string?
 local playerName = '' ---@type string?
 
+
+-- Go over all drivers that currently are in the server then get their nationality and name.
 ---@return string?, string? @playerName, playerNationality
 function getFlagInfo()
     for i=0, _car.index do
@@ -22,9 +260,3 @@ function getFlagInfo()
     end
     return playerName, playerNationality
 end
-
---[[
-ac.onClientConnected(function ()
-    getFlagInfo()
-end)
-]]

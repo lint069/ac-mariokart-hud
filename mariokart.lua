@@ -37,10 +37,11 @@ function script.Draw3D()
     if not settings.enabled then return end
 
     local carPos = _car.position
+    local mk8Path = _assetsPath .. '/mk8/'
+    local mkwPath = _assetsPath .. '/mkw/'
 
     --#region Arrow
 
-    local mk8Path = _assetsPath .. '/mk-8/'
     local arrowPos = carPos + vec3(0, 1.75, 0)
     local p1, p2, p3, p4 = makeBillboardQuad(arrowPos, 0.4, 0.4)
     render.quad(p1, p2, p3, p4, rgbm(1, 1, 1, 1), mk8Path .. "arrow.png")
@@ -54,7 +55,7 @@ function script.Draw3D()
     local flagPos = arrowPos + flagOffset + vec3(0, 0.36, 0)
 
     local _, playerNationality = getFlagInfo()
-    local flagHeight = 0.165
+    local flagHeight = 0.18
     local flagWidth = flagHeight * _flags[playerNationality].ratio
 
     local flagsPath = _assetsPath .. '/flags/'
