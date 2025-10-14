@@ -50,17 +50,18 @@ function script.Draw3D()
 
     --#region Flag
 
+    --todo: offset for different flag ratios
     local camSide = ac.getCameraSide()
     local flagOffset = camSide * 0.7
     local flagPos = arrowPos + flagOffset + vec3(0, 0.36, 0)
 
     local _, playerNationality = getFlagInfo()
-    local flagHeight = 0.18
-    local flagWidth = flagHeight * _flags[playerNationality].ratio
+    local flagHeight = 0.2
+    local flagWidth = flagHeight * _flag[playerNationality].ratio
 
     local flagsPath = _assetsPath .. '/flags/'
     local p1, p2, p3, p4 = makeBillboardQuad(flagPos, flagWidth, flagHeight)
-    render.quad(p1, p2, p3, p4, nil, flagsPath .. _flags[playerNationality].ISO .. ".png")
+    render.quad(p1, p2, p3, p4, nil, flagsPath .. _flag[playerNationality].ISO .. ".png")
 
     --#endregion
 end

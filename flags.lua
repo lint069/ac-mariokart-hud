@@ -1,19 +1,17 @@
 ---@diagnostic disable: lowercase-global
 
 --[[
-    ratio info from:
+    Ratio information:
     https://de.wikipedia.org/wiki/Liste_der_Seitenverh%C3%A4ltnisse_von_Flaggen
     https://en.wikipedia.org/wiki/List_of_national_flags_of_sovereign_states
 
-    ratio = width/height
-
-    sorted like the lib
+    Table sorted like in the lib
 ]]
 
-_flags = {
+_flag = {
     Aruba           = { ISO = 'aw', ratio = 3/2 },
     Afghanistan     = { ISO = 'af', ratio = 3/2 },
-    Angola          = { ISO = 'ag', ratio = 3/2 },
+    Angola          = { ISO = 'ao', ratio = 3/2 },
     Anguilla        = { ISO = 'ai', ratio = 2/1 },
     Albania         = { ISO = 'al', ratio = 7/5 },
     Andorra         = { ISO = 'ad', ratio = 10/7 },
