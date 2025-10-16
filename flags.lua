@@ -233,7 +233,7 @@ _flag = {
     USA             = { ISO = 'us', ratio = 19/10 },
     Uzbekistan      = { ISO = 'uz', ratio = 2/1 },
     Venezuela       = { ISO = 've', ratio = 3/2 },
-    British         = { ISO = 'gb', ratio = 2/1 },
+    British         = { ISO = 'vg', ratio = 2/1 },
     Virgin          = { ISO = 'vi', ratio = 3/2 },
     Vietnam         = { ISO = 'vn', ratio = 3/2 },
     Vanuatu         = { ISO = 'vu', ratio = 36/19 },
@@ -245,13 +245,13 @@ _flag = {
     Zimbabwe        = { ISO = 'zw', ratio = 2/1 },
 }
 
+
 local playerNationality = '' ---@type string?
 local playerName = '' ---@type string?
 
-
 -- Go over all drivers that currently are in the server then get their nationality and name.
 ---@return string?, string? @playerName, playerNationality
-function getFlagInfo()
+function getPlayerInfo()
     for i=0, _car.index do
         playerName = ac.getDriverName(i)
         playerNationality = ac.getDriverNationality(i)
