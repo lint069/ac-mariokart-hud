@@ -245,16 +245,12 @@ _flag = {
     Zimbabwe        = { ISO = 'zw', ratio = 2/1 },
 }
 
-
-local playerNationality = '' ---@type string?
-local playerName = '' ---@type string?
-
--- Go over all drivers that currently are in the server then get their nationality and name.
+---Gets the driver’s name and nationality for a given car.
+---@param carIndex integer @0-based car index.
 ---@return string?, string? @playerName, playerNationality
-function getPlayerInfo()
-    for i=0, _car.index do
-        playerName = ac.getDriverName(i)
-        playerNationality = ac.getDriverNationality(i)
-    end
+function getPlayerInfo(carIndex)
+    local playerName = ac.getDriverName(carIndex)
+    local playerNationality = ac.getDriverNationality(carIndex)
+
     return playerName, playerNationality
 end
